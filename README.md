@@ -26,3 +26,16 @@
    4. copy index.html content to App.js
    5. copy style.css content to index.css
    6. replace class with className
+6. Share Code On Github
+   1. Initialize git repository
+   2. Commit changes
+   3. Create github account
+   4. Create repo on github
+   5. connect local repo to github repo
+   6. push changes to github
+7. Create Rating and Product Component
+   1. create components/Rating.js
+   2. create div.rating
+   3. style div.rating, span and last span
+   4. Create Product component
+   5. Use Rating component
