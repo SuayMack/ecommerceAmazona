@@ -17,7 +17,7 @@ function App() {
                 <div className="row center">
                     {
                         data.products.map((product) => (
-                            <Product product = {product}></Product>
+                            <Product key = {product._id} product = {product}></Product>
                         ))
                     }
                 </div>
