@@ -1,6 +1,6 @@
 import React from 'react';
+import Product from './components/Product';
 import data from './data';
-import Product from './Product';
 
 function App() {
   return (
