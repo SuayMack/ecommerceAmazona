@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Rating from '../components/Rating';
-import data from '../data';
 
 export default function ProductScreen(props) {
-    const product = data.products.find((x) => x._id === props.match.params.id);
-    if (!product) {
-      return <div> Product Not Found</div>;
-    }
+    const productDetails = useSelector( state => state.productDetails);
+    const { loading, error, product } = productDetails;
     return (
         <div>
             <Link to = "/">Back to result</Link>
