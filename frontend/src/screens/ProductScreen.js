@@ -4,12 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import Rating from '../components/Rating';
 import LoadingBox from './../components/LoadingBox';
 import MessageBox from './../components/MessageBox';
-import { detailsProduct } from './../components/productActions'
+import { detailsProduct } from './../actions/productActions'
 
 export default function ProductScreen(props) {
     const dispatch = useDispatch();
     const productId = props.match.params.id;
-    const productDetails = useSelector( state => state.productDetails);
+    const productDetails = useSelector((state) => state.productDetails);
     const { loading, error, product } = productDetails;
 
     useEffect(() => {
