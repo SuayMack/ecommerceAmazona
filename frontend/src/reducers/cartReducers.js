@@ -11,7 +11,7 @@ export const cartReducers = (state = { cartItems: [] }, action) => {
                     cartItems: state.cartItems.map(x => x.product === existItem.product ? item : x),
                 };
             } else {
-                return { ...state, cartItems: [...state.cartItems, item ]}
+                return { ...state, cartItems: [...state.cartItems, item ]};
             }
         default:
             return state;
