@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from './../actions/cartActions';
+import { addToCart, removeFrontCart } from './../actions/cartActions';
 import MessageBox from './../components/MessageBox';
 import { Link } from 'react-router-dom';
 
@@ -17,9 +17,10 @@ export default function CartScreen(props) {
             dispatch(addToCart(productId, qty));
         }
     }, [dispatch, productId, qty]);
-    const removeFromCartHandler = (id =>{
+    const removeFromCartHandler = (id) =>{
         // delete action
-    })
+        dispatch(removeFrontCart(id))
+    }
 
     const  checkoutHandler = () =>{
         props.history.push('/singin?redirect=shipping')
@@ -28,15 +29,11 @@ export default function CartScreen(props) {
         <div className="row top">
             <div className="col-2">
                 <h1>Shopping Cart</h1>
-                {cartItems.lenght === 0 ?
+                {cartItems.length === 0 ? (
                     <MessageBox>
-                        Cart is empty.
-                        <Link to="/">
-                            Go Shopping
-                        </Link>
+                        Cart is empty. <Link to="/">Go Shopping</Link>
                     </MessageBox>
-                    :
-                    (
+                    ):(
                         <ul>
                             {cartItems.map((item) => (
                                 <li key={item.product}>
