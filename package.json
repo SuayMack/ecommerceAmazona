@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/SuayMack/ecommerceAmazona#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
     "express-load": "^1.1.16",
+    "mongoose": "^5.11.11",
     "nodemon": "^2.0.6"
   },
   "devDependencies": {
