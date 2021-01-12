@@ -7,7 +7,7 @@ const userRouter = express.Router();
 
 userRouter.get('/seed', expressAsyncHandler(async(req, res) => {
   //remove all Users and create users with new id
-  await User.remove({});
+  //await User.remove({});
   const createdUsers = await User.insertMany(data.users);
   res.send({ createdUsers })
 }));
