@@ -3,6 +3,7 @@ import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import SigninScreen from './screens/SigninScreen';
 
 function App() {
     
@@ -21,12 +22,13 @@ function App() {
                         {cartItems.length > 0 && (
                             <span className="badge">{cartItems.length}</span>
                         )}
-                        <Link to="/singin">Sing In</Link>
+                        <Link to="/signin">Sing In</Link>
                     </div>
                 </header>
                 <main>
                     <Route path = "/" component = { HomeScreen } exact></Route>
                     <Route path = "/product/:id" component = { ProductScreen }></Route>
+                    <Route path="/signin" component= { SigninScreen }></Route>
                     <Route path = "/cart/:id?" component = { CartScreen }></Route>
                 </main>
                 <footer className="row center">All right reserved</footer>
