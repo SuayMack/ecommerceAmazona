@@ -49,8 +49,7 @@ export const detailsOrder = (orderId) => async (dispatch, getState) => {
     const message =
       error.response && error.response.data.message
         ? error.response.data.message
-        : error.message
-      ;
+        : error.message;
     dispatch({ type: ORDER_DETAILS_FAIL, payload: message });
   }
 };
