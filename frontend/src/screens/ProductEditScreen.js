@@ -18,8 +18,7 @@ export default function ProductEditScreen(props) {
    const { loading, error, product } = productDetails;
    const dispatch = useDispatch();
    useEffect(() => {
-      dispatch(detailsProduct(productId));
-      if(!product.name){
+      if(!product || (product._id !== productId)){
          dispatch(detailsProduct(productId));
       }else{
          setName(product.name);
@@ -42,9 +41,10 @@ export default function ProductEditScreen(props) {
             <div>
                <h1>Edit Product {productId}</h1>
             </div>
-            {loading ? (<LoadingBox></LoadingBox> 
+            {loading ? (
+               <LoadingBox></LoadingBox>
             ) : error ? (
-               <MessageBox variant="danger">{error}</MessageBox> 
+               <MessageBox variant="danger">{error}</MessageBox>
             ) : (
                <>
                   <div>
@@ -118,14 +118,16 @@ export default function ProductEditScreen(props) {
                         onChange={(e) => setDescription(e.target.value)}
                      ></textarea>
                   </div>
-                  <label></label>
-                  <button className="primary" type="submit">
-                     Update
-                  </button>
+                  <div>
+                     <label></label>
+                     <button className="primary" type="submit">
+                        Update
+                     </button>
+                  </div>
                </>
             )}
          </form>
       </div>
-   )
+   );
 }
 
