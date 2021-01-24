@@ -58,13 +58,13 @@ productRouter.post(
 );
 
 productRouter.put(
-  '/:id', 
-  isAuth, 
-  isAdmin, 
+  '/:id',
+  isAuth,
+  isAdmin,
   expressAsyncHandler(async (req, res) => {
-  const productId = req.params.id;
-  const product = await Product.findById(productId);
-    if(product) {
+    const productId = req.params.id;
+    const product = await Product.findById(productId);
+    if (product) {
       product.name = req.body.name;
       product.price = req.body.price;
       product.image = req.body.image;
@@ -73,10 +73,26 @@ productRouter.put(
       product.countInStock = req.body.countInStock;
       product.description = req.body.description;
       const updateProduct = await product.save();
-      res.send({message:'Product Updated', product: updateProduct})
-    }else{
-      res.status(404).send({message:'Product Not Found'});
+      res.send({ message: 'Product Updated', product: updateProduct })
+    } else {
+      res.status(404).send({ message: 'Product Not Found' });
     }
   })
 );
+
+productRouter.delete(
+  '/:id', 
+  isAuth, 
+  isAdmin, 
+  expressAsyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    if (product) {
+      const deleteProduct = await product.remove();
+      res.send({ message: 'Product Deleted', product: deleteProduct });
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
 export default productRouter;
