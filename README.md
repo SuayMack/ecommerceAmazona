@@ -306,3 +306,6 @@ $ npm start
     2. create Order List Screen
     3. Add reducer to store
     4. show products on the screen
+43. Delete Order
+    2. create delete order action and reducer
+    3. add order delete action to order list
