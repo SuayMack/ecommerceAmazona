@@ -187,8 +187,9 @@ img.small {
   width: 100%;
 }
 img.medium {
-  max-width: 29rem;
+  max-width: 30rem;
   width: 100%;
+  height: 38rem;
 }
 img.large {
   width: 100%;

@@ -20,6 +20,7 @@ import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import SellerRoute from './components/SellerRoute';
+import SellerScreen from './screens/SellerScreen';
 
 function App() {
     
@@ -108,6 +109,7 @@ function App() {
                 </header>
                 <main>
                     <Route path = "/" component = { HomeScreen } exact></Route>
+                    <Route path="/seller/:id" component={SellerScreen}></Route>
                     <Route path ="/cart/:id?" component = { CartScreen }></Route>
                     <Route path="/product/:id" component={ProductScreen} exact></Route>                    
                     <Route path="/product/:id/edit" component={ProductEditScreen} exact></Route>                    
