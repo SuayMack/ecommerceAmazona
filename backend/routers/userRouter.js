@@ -7,6 +7,11 @@ import { generateToken, isAdmin, isAuth } from '../utils.js';
 
 const userRouter = express.Router();
 
+userRouter.get('/top-sellers', expressAsyncHandler(async (req, res) => {
+  const topSellers = await User.find({ isSeller: true }).sort({ 'seller.rating': -1}).limit(3)
+  re.send(topSellers)
+}))
+
 userRouter.get('/seed', expressAsyncHandler(async (req, res) => {
   //remove all Users and create users with new id
   //await User.remove({});
