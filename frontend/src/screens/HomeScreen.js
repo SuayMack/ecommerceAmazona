@@ -15,7 +15,11 @@ export default function HomeScreen() {
     const {loading, error, products} = productList;
 
     const userTopSellersList = useSelector((state) => state.userTopSellersList);
-  const {loading: loadingSellers, error: errorSellers, users: sellers,} = userTopSellersList;
+    const {
+        loading: loadingSellers,
+        error: errorSellers,
+        users: sellers,
+    } = userTopSellersList;
     
     useEffect(() =>{
         dispatch(listProducts({}));
@@ -53,9 +57,9 @@ export default function HomeScreen() {
                     {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
                     <div className="row center">
                         {products.map((product) => (
-                            <Product key={product._id} product={product}></Product>
+                        <Product key={product._id} product={product}></Product>
                         ))}
-                    </div>    
+                    </div>
                 </>
                 
             )}

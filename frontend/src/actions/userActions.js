@@ -177,8 +177,8 @@ export const listTopSellers = () => async (dispatch) => {
    } catch (error) {
       const message =
          error.response && error.response.data.message
-         ? error.response.data.message
-         : error.message;
-         dispatch({ type: USER_TOPSELLERS_LIST_FAIL, payload: message });
-      }
-};
+            ? error.response.data.message
+            : error.message;
+      dispatch({ type: USER_TOPSELLERS_LIST_FAIL, payload: message });
+   }
+ };
