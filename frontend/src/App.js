@@ -21,6 +21,8 @@ import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import SellerRoute from './components/SellerRoute';
 import SellerScreen from './screens/SellerScreen';
+import SearchBox from './components/SearchBox';
+import SearchScreen from './screens/SearchScreen';
 
 function App() {
     
@@ -39,6 +41,9 @@ function App() {
                 <header className="row">
                     <div>
                         <Link className="brand" to="/">amazona</Link>
+                    </div>
+                    <div>
+                        <Route render={({history}) => <SearchBox history={history}></SearchBox>}></Route>
                     </div>
                     <div>
                         <Link to="/cart">
@@ -120,6 +125,7 @@ function App() {
                     <Route path="/placeorder" component={PlaceOrderScreen}></Route>
                     <Route path="/order/:id" component={OrderScreen}></Route>
                     <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+                    <Route path="/search/name/:name?" component={SearchScreen} exact></Route>
                     <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>
                     <AdminRoute path="/productlist" component={ProductListScreen} exact></AdminRoute>
                     <AdminRoute path="/orderlist" component={OrderListScreen} exact></AdminRoute>
